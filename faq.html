@@ -1,52 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAQ</title>
-  <link rel="stylesheet" href="assets/css/faq.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTWIST | FAQ</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/faq.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="sidebar">
-    <h2>NTWIST</h2>
-    <a href="index.html">Form</a>
-    <a href="sort.html">Sort</a>
-    <a href="faq.html">FAQ</a>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">
+        <h1>NTWIST</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Contact</a></li>
+          <li><a href="sort.html">Team</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="faq-container">
+        <div class="faq-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find answers to common questions about NTWIST</p>
+        </div>
+        
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What is NTWIST?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>NTWIST is a cutting-edge software company specializing in AI-driven solutions for various industries. Our platform helps businesses optimize their operations, reduce costs, and improve efficiency through advanced data analytics and machine learning algorithms.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How can I get started with NTWIST?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Getting started with NTWIST is easy! Simply contact our sales team through the contact form, and we'll schedule a demo to show you how our platform can benefit your business. After the demo, we'll work with you to customize a solution that meets your specific needs.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What industries does NTWIST serve?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>NTWIST serves a wide range of industries including manufacturing, healthcare, finance, retail, and energy. Our flexible platform can be adapted to meet the unique challenges of various sectors, providing tailored solutions that drive real business value.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Is NTWIST suitable for small businesses?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>NTWIST offers scalable solutions that can be tailored to businesses of all sizes. We have pricing plans designed specifically for small businesses, allowing you to access powerful AI capabilities without breaking the bank. As your business grows, our platform can scale with you.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How secure is the NTWIST platform?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Security is our top priority at NTWIST. Our platform is built with enterprise-grade security features, including end-to-end encryption, regular security audits, and compliance with industry standards such as GDPR, HIPAA, and SOC 2. Your data is always protected with the highest level of security measures.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Do you offer customer support?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes, we provide comprehensive customer support to all our clients. Depending on your plan, you'll have access to email support, phone support, or a dedicated account manager. Our support team is available during business hours to help you with any questions or issues you may encounter.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can NTWIST integrate with my existing systems?</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M7 10l5 5 5-5H7z"></path>
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>NTWIST is designed to seamlessly integrate with a wide range of existing systems and software. We offer APIs and pre-built connectors for popular platforms, making it easy to incorporate our solution into your current technology stack. Our team can also develop custom integrations for specialized systems if needed.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 NTWIST. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="index.html">Contact</a>
+          <a href="sort.html">Team</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </footer>
   </div>
-
- <div class="main-content">
-  <h1>Frequently Asked Questions</h1>
-
-  <details>
-    <summary>What is NTWIST?</summary>
-    <p>NTWIST is a software company providing data and automation solutions.</p>
-  </details>
-
-  <details>
-    <summary>Can I use JavaScript on this page?</summary>
-    <p>No, this page should use only HTML and CSS as per assignment instructions.</p>
-  </details>
-
-  <details>
-    <summary>How is this accordion implemented?</summary>
-    <p>Using native &lt;details&gt; and &lt;summary&gt; elements with simple CSS.</p>
-  </details>
-
-  <details>
-    <summary>Is this website responsive?</summary>
-    <p>Yes, the layout is mobile-friendly using flexible styling.</p>
-  </details>
-
-  <details>
-    <summary>Where is the submitted contact data shown?</summary>
-    <p>Contact form submissions are displayed below the form in the UI and are saved in a simulated database.</p>
-  </details>
-
-  <details>
-    <summary>How is the sorting implemented on the Sort page?</summary>
-    <p>Using JavaScript to reorder the names alphabetically when the button is clicked.</p>
-  </details>
-</div>
-
 </body>
 </html>
