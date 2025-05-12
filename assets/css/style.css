@@ -1,26 +1,29 @@
-/* Basic Reset */
+/* Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
 
-/* Flex layout */
+/* Layout for sidebar pages */
 .container {
   display: flex;
-  flex-direction: row;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   width: 250px;
-  background: #f4f4f4;
+  background-color: #333;
+  color: #fff;
   padding: 20px;
   flex-shrink: 0;
   position: sticky;
@@ -28,33 +31,166 @@ body {
   height: 100vh;
 }
 
-/* Main content */
-.main-content {
-  flex-grow: 1;
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.sidebar nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.sidebar nav a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
   padding: 20px;
   overflow-y: auto;
+  background-color: #fff;
 }
 
-/* Form styles */
+/* Form styling (index.html) */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
   max-width: 500px;
+  margin: auto;
+  background: #fdfdfd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-input, textarea {
-  padding: 10px;
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input,
+form textarea {
   width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-button {
-  padding: 10px;
+form button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+form button:hover {
+  background-color: #0056b3;
+}
+
+#timer {
+  margin-top: 15px;
+  font-style: italic;
+  color: #555;
+}
+
+.confirmation {
+  color: green;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* Sortable list (sort.html) */
+.sort-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#name-list {
+  margin-top: 15px;
+  list-style: none;
+  padding-left: 0;
+}
+
+#name-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#sort-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#sort-btn:hover {
+  background-color: #1e7e34;
+}
+
+/* FAQ page (faq.html) */
+.faq-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+details {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Rating page (rating.html) */
+.rating-container {
+  max-width: 400px;
+  margin: 100px auto;
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.star {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star.selected {
+  color: gold;
+}
+
+#rating-value {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
   }
@@ -62,5 +198,10 @@ button {
   .sidebar {
     width: 100%;
     height: auto;
+    position: static;
+  }
+
+  .main {
+    padding: 10px;
   }
 }
