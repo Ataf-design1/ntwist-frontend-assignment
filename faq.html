@@ -4,50 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FAQ</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    .faq-container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    details {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      padding: 10px;
-      background-color: #f9f9f9;
-    }
-
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    summary::marker {
-      color: #007BFF;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/faq.css" />
 </head>
 <body>
-  <div class="faq-container">
-    <h1>Frequently Asked Questions</h1>
-
-    <details>
-      <summary>What is NTWIST?</summary>
-      <p>NTWIST is a software company providing data and automation solutions.</p>
-    </details>
-
-    <details>
-      <summary>Can I use JavaScript on this page?</summary>
-      <p>No, this page should use only HTML and CSS as per assignment instructions.</p>
-    </details>
-
-    <details>
-      <summary>How is this accordion implemented?</summary>
-      <p>Using native &lt;details&gt; and &lt;summary&gt; elements with simple CSS.</p>
-    </details>
+  <div class="sidebar">
+    <h2>NTWIST</h2>
+    <a href="index.html">Form</a>
+    <a href="sort.html">Sort</a>
+    <a href="faq.html">FAQ</a>
   </div>
+
+ <div class="main-content">
+  <h1>Frequently Asked Questions</h1>
+
+  <details>
+    <summary>What is NTWIST?</summary>
+    <p>NTWIST is a software company providing data and automation solutions.</p>
+  </details>
+
+  <details>
+    <summary>Can I use JavaScript on this page?</summary>
+    <p>No, this page should use only HTML and CSS as per assignment instructions.</p>
+  </details>
+
+  <details>
+    <summary>How is this accordion implemented?</summary>
+    <p>Using native &lt;details&gt; and &lt;summary&gt; elements with simple CSS.</p>
+  </details>
+
+  <details>
+    <summary>Is this website responsive?</summary>
+    <p>Yes, the layout is mobile-friendly using flexible styling.</p>
+  </details>
+
+  <details>
+    <summary>Where is the submitted contact data shown?</summary>
+    <p>Contact form submissions are displayed below the form in the UI and are saved in a simulated database.</p>
+  </details>
+
+  <details>
+    <summary>How is the sorting implemented on the Sort page?</summary>
+    <p>Using JavaScript to reorder the names alphabetically when the button is clicked.</p>
+  </details>
+</div>
+
 </body>
 </html>

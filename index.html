@@ -3,42 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Form - NTWIST</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="assets/css/index.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <h2>Navigation</h2>
-      <nav>
-        <a href="index.html">Contact Form</a>
-        <a href="sort.html">Sortable List</a>
-        <a href="faq.html">FAQ</a>
-        <a href="rating.html">Star Rating</a>
-      </nav>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main">
-      <h1>Contact Us</h1>
-      <form id="contact-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">Submit</button>
-        <p id="timer"></p>
-        <p class="confirmation" id="confirmation-msg"></p>
-      </form>
-    </div>
+  <div class="sidebar">
+    <h2>NTWIST</h2>
+    <a href="index.html">Form</a>
+    <a href="sort.html">Sort</a>
+    <a href="faq.html">FAQ</a>
   </div>
 
-  <script src="assets/js/form.js"></script>
+  <div class="main-content">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <label>Name: <input type="text" name="name" required /></label>
+      <label>Email: <input type="email" name="email" required /></label>
+      <label>Message: <textarea name="message" required></textarea></label>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmation" class="hidden">Message Sent Successfully!</div>
+
+    <h2>Submitted Entries</h2>
+    <ul id="entriesList"></ul>
+  </div>
+
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
