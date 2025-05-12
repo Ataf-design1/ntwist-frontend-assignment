@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <div class="sidebar">
-      <h2>NTWIST</h2>
-      <a href="index.html">Form</a>
-      <a href="sort.html">Sort</a>
-      <a href="faq.html">FAQ</a>
-      <a href="rating.html">Rating</a>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="assets/css/index.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>NTWIST</h2>
+    <a href="index.html">Form</a>
+    <a href="sort.html">Sort</a>
+    <a href="faq.html">FAQ</a>
+  </div>
 
-    <div class="main-content">
-      <h1>Contact Us</h1>
-      <form id="contactForm">
-        <label>Name: <input type="text" name="name" required /></label>
-        <label>Email: <input type="email" name="email" required /></label>
-        <label>Message: <textarea name="message" required></textarea></label>
-        <button type="submit">Submit</button>
-      </form>
+  <div class="main-content">
+    <h1>Contact Us</h1>
 
-      <div id="confirmation" class="hidden">Message Sent Successfully!</div>
+    <form id="contactForm">
+      <label>Name: <input type="text" name="name" required /></label>
+      <label>Email: <input type="email" name="email" required /></label>
+      <label>Message: <textarea name="message" required></textarea></label>
 
-      <h2>Submitted Entries</h2>
-      <ul id="entriesList"></ul>
-    </div>
+      <div class="rating-section">
+        <label>Rate :</label>
+        <div class="stars" id="star-container">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+      </div>
 
-    <script src="assets/js/index.js"></script>
-  </body>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmation" class="hidden">Message Sent Successfully!</div>
+
+    <h2>Submitted Entries</h2>
+    <ul id="entriesList"></ul>
+  </div>
+
+  <script src="assets/js/index.js"></script>
+</body>
 </html>
