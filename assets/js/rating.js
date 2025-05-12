@@ -1,35 +1,32 @@
-const stars = document.querySelectorAll(".star");
-const ratingText = document.getElementById("rating-value");
+const stars = document.querySelectorAll('.star');
+const ratingDisplay = document.getElementById('rating-value');
+
 let selectedRating = 0;
 
 stars.forEach((star) => {
-  star.addEventListener("mouseover", () => {
-    resetStars();
-    highlightStars(star.dataset.value);
+  star.addEventListener('mouseover', () => {
+    const value = +star.getAttribute('data-value');
+    highlightStars(value);
   });
 
-  star.addEventListener("mouseout", () => {
-    resetStars();
+  star.addEventListener('mouseout', () => {
     highlightStars(selectedRating);
   });
 
-  star.addEventListener("click", () => {
-    selectedRating = star.dataset.value;
-    ratingText.textContent = `You rated ${selectedRating} star(s)!`;
+  star.addEventListener('click', () => {
+    selectedRating = +star.getAttribute('data-value');
+    ratingDisplay.textContent = `You rated: ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
     highlightStars(selectedRating);
   });
 });
 
 function highlightStars(rating) {
   stars.forEach((star) => {
-    if (star.dataset.value <= rating) {
-      star.classList.add("selected");
+    const val = +star.getAttribute('data-value');
+    if (val <= rating) {
+      star.classList.add('selected');
+    } else {
+      star.classList.remove('selected');
     }
-  });
-}
-
-function resetStars() {
-  stars.forEach((star) => {
-    star.classList.remove("selected");
   });
 }
