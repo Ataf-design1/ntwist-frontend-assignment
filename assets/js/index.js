@@ -1,76 +1,165 @@
-const form = document.getElementById("contactForm");
-const confirmation = document.getElementById("confirmation");
-const entriesList = document.getElementById("entriesList");
+document.addEventListener("DOMContentLoaded", () => {
+  // Form elements
+  const contactForm = document.getElementById("contact-form")
+  const nameInput = document.getElementById("name")
+  const emailInput = document.getElementById("email")
+  const messageInput = document.getElementById("message")
+  const successMessage = document.getElementById("success-message")
+  const closeSuccessBtn = document.getElementById("close-success")
+  const timeSpentElement = document.getElementById("time-spent")
 
-let startTime = null;
-let selectedRating = 0;
+  // Star rating elements
+  const starRating = document.getElementById("star-rating")
+  const stars = document.querySelectorAll(".star")
+  const ratingInput = document.getElementById("rating")
 
-// Track form start time
-form.addEventListener("focusin", () => {
-  if (!startTime) startTime = new Date();
-});
+  // Form timing variables
+  let startTime = null
+  let formInteracted = false
 
-// Star rating logic
-const stars = document.querySelectorAll('.star');
-stars.forEach((star) => {
-  star.addEventListener('click', () => {
-    selectedRating = +star.getAttribute('data-value');
-    stars.forEach((s, i) => {
-      s.classList.toggle('selected', i < selectedRating);
-    });
-  });
-});
+  // Initialize form timing
+  function initFormTiming() {
+    const formInputs = [nameInput, emailInput, messageInput]
 
-// Handle form submission
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    formInputs.forEach((input) => {
+      input.addEventListener("focus", () => {
+        if (!formInteracted) {
+          startTime = new Date()
+          formInteracted = true
+        }
+      })
+    })
+  }
 
-  const endTime = new Date();
-  const duration = Math.floor((endTime - startTime) / 1000);
+  // Initialize star rating
+  function initStarRating() {
+    stars.forEach((star) => {
+      // Hover effect
+      star.addEventListener("mouseover", function () {
+        const value = Number.parseInt(this.getAttribute("data-value"))
+        highlightStars(value)
+      })
 
-  const formData = new FormData(form);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
+      // Mouse leave effect
+      starRating.addEventListener("mouseleave", () => {
+        const currentRating = Number.parseInt(ratingInput.value)
+        highlightStars(currentRating)
+      })
 
-  const entry = { name, email, message, timeTaken: duration, rating: selectedRating };
+      // Click effect
+      star.addEventListener("click", function () {
+        const value = Number.parseInt(this.getAttribute("data-value"))
+        ratingInput.value = value
+        highlightStars(value)
+      })
+    })
+  }
 
-  // Save in localStorage
-  const db = JSON.parse(localStorage.getItem("entries")) || [];
-  db.push(entry);
-  localStorage.setItem("entries", JSON.stringify(db));
+  // Highlight stars up to a specific value
+  function highlightStars(value) {
+    stars.forEach((star) => {
+      const starValue = Number.parseInt(star.getAttribute("data-value"))
+      if (starValue <= value) {
+        star.classList.add("active")
+      } else {
+        star.classList.remove("active")
+      }
+    })
+  }
 
-  // Also update sort data
-  const listData = JSON.parse(localStorage.getItem("sortNames")) || [];
-  listData.push({ name, timeTaken: duration });
-  localStorage.setItem("sortNames", JSON.stringify(listData));
+  // Form validation
+  function validateForm() {
+    let isValid = true
 
-  confirmation.textContent = `Message Sent Successfully! Time Spent: ${duration}s`;
-  confirmation.classList.remove("hidden");
+    // Validate name
+    if (!nameInput.value.trim()) {
+      showError(nameInput, "name-error", "Name is required")
+      isValid = false
+    } else {
+      clearError(nameInput, "name-error")
+    }
 
-  form.reset();
-  selectedRating = 0;
-  stars.forEach(s => s.classList.remove('selected'));
-  startTime = null;
+    // Validate email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!emailInput.value.trim()) {
+      showError(emailInput, "email-error", "Email is required")
+      isValid = false
+    } else if (!emailPattern.test(emailInput.value)) {
+      showError(emailInput, "email-error", "Please enter a valid email address")
+      isValid = false
+    } else {
+      clearError(emailInput, "email-error")
+    }
 
-  renderEntries();
-});
+    // Validate message
+    if (!messageInput.value.trim()) {
+      showError(messageInput, "message-error", "Message is required")
+      isValid = false
+    } else {
+      clearError(messageInput, "message-error")
+    }
 
-function renderEntries() {
-  const db = JSON.parse(localStorage.getItem("entries")) || [];
-  entriesList.innerHTML = "";
+    return isValid
+  }
 
-  db.forEach((entry) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <strong>${entry.name}</strong><br>
-      <small>${entry.email}</small><br>
-      ${entry.message}<br>
-      ⭐ Rating: ${entry.rating || "Not given"}<br>
-      ⏱ ${entry.timeTaken}s
-    `;
-    entriesList.appendChild(li);
-  });
-}
+  // Show error message
+  function showError(input, errorId, message) {
+    const errorElement = document.getElementById(errorId)
+    input.style.borderColor = "var(--error-color)"
+    errorElement.textContent = message
+  }
 
-renderEntries();
+  // Clear error message
+  function clearError(input, errorId) {
+    const errorElement = document.getElementById(errorId)
+    input.style.borderColor = "var(--border-color)"
+    errorElement.textContent = ""
+  }
+
+  // Calculate time spent on form
+  function calculateTimeSpent() {
+    if (!startTime) return "Less than a second"
+
+    const endTime = new Date()
+    const timeSpentMs = endTime - startTime
+    const seconds = Math.floor(timeSpentMs / 1000)
+
+    if (seconds < 60) {
+      return `${seconds} second${seconds !== 1 ? "s" : ""}`
+    } else {
+      const minutes = Math.floor(seconds / 60)
+      const remainingSeconds = seconds % 60
+      return `${minutes} minute${minutes !== 1 ? "s" : ""} and ${remainingSeconds} second${remainingSeconds !== 1 ? "s" : ""}`
+    }
+  }
+
+  // Form submission
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    if (validateForm()) {
+      const timeSpent = calculateTimeSpent()
+      timeSpentElement.textContent = `You spent ${timeSpent} filling out this form.`
+
+      // Show success message
+      successMessage.classList.add("show")
+
+      // Reset form
+      contactForm.reset()
+      highlightStars(0)
+
+      // Reset timing variables
+      startTime = null
+      formInteracted = false
+    }
+  })
+
+  // Close success message
+  closeSuccessBtn.addEventListener("click", () => {
+    successMessage.classList.remove("show")
+  })
+
+  // Initialize
+  initFormTiming()
+  initStarRating()
+})
