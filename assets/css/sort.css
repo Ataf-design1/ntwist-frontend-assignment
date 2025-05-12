@@ -7,35 +7,32 @@
 
 body {
   display: flex;
+  flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f7fa;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
-  height: 100vh;
+  width: 100%;
   background-color: #1f2937;
   color: white;
-  position: fixed;
-  padding: 30px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px 0;
+  text-align: center;
+  position: static;
 }
 
 .sidebar h2 {
-  margin-bottom: 30px;
   font-size: 24px;
+  margin-bottom: 20px;
   color: #10b981;
 }
 
 .sidebar a {
   text-decoration: none;
   color: white;
-  padding: 12px 20px;
-  width: 100%;
-  text-align: center;
+  display: block;
+  padding: 12px 0;
   transition: background 0.3s;
 }
 
@@ -45,21 +42,20 @@ body {
 
 /* Main Content */
 .main-content {
-  margin-left: 220px;
-  padding: 40px;
-  width: calc(100% - 220px);
+  padding: 30px 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-content h1 {
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 20px;
   color: #111827;
+  text-align: center;
 }
 
-/* Button Styling */
 #sortBtn {
   padding: 10px 18px;
   background-color: #3b82f6;
@@ -76,29 +72,74 @@ body {
   background-color: #2563eb;
 }
 
-/* List Styling */
+/* Name List Styling */
 #nameList {
   list-style: none;
-  padding: 20px;
-  max-width: 800px;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  padding: 0;
   margin-top: 10px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
-/* Individual Name Card */
 #nameList li {
-  background-color: #f9fafb;
-  padding: 16px;
-  border-left: 5px solid #10b981;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 16px;
   color: #1f2937;
-  word-wrap: break-word;
+}
+
+#nameList li:last-child {
+  border-bottom: none;
+}
+
+.list-left {
+  font-weight: 500;
+}
+
+.list-right {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    padding: 30px 0;
+  }
+
+  .main-content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 40px;
+  }
+
+  #nameList {
+    max-width: 800px;
+  }
+}
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 0;
+  }
 }
