@@ -1,15 +1,39 @@
-<!-- Example for index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NTWIST Assignment</title>
+  <title>Form Page</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <p>Navigation or Info</p>
+    </aside>
 
-  <h1>Welcome to NTWIST Assignment</h1>
+    <main class="main-content">
+      <h1>Contact Us</h1>
+      <form id="contact-form">
+        <label>
+          Name:
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Message:
+          <textarea name="message" required></textarea>
+        </label>
+        <button type="submit">Submit</button>
+        <p id="time-info"></p>
+        <p id="success-message" style="color: green;"></p>
+      </form>
+    </main>
+  </div>
 
   <script src="assets/js/script.js"></script>
 </body>
